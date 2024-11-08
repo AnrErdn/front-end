@@ -6,7 +6,7 @@ export default function Home() {
 
       <header className="py-16 text-center">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-extrabold tracking-tight text-gray-100">Сайн биш байна оо.</h1>
+          <h1 className="text-5xl font-extrabold tracking-tight text-gray-100">Hi niggers!</h1>
           <p className="text-xl mt-4">Би Nest Education IT сургуульд сурдаг.</p>
           <a href="#about" className="inline-block mt-6 px-8 py-3 text-lg font-medium text-gray-900 bg-indigo-400 rounded-full shadow-lg transform transition-all hover:scale-105 hover:bg-indigo-500 duration-300">
             Энд нэг дараад үздээ.
@@ -21,7 +21,7 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-indigo-500">
               <Image 
-                src="/johnwick.jpg"
+                src="/ca.png"
                 alt="mniii zurg"
                 width={192}
                 height={192}
