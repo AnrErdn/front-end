@@ -37,7 +37,7 @@ export default function Home() {
 
       <section id="projects" className="py-16 px-6 bg-gray-800">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-100 mb-8">Өчигдөр хэдэн цаг оролдож, chatGPT-с асууж, засуулж байж хийсэн хэдэн юм.</h2>
+          <h2 className="text-4xl font-bold text-gray-100 mb-8">Өчигдөр хэдэн цаг оролдож байж хийсэн хэдэн юм.</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <div className="bg-gray-700 p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 hover:shadow-xl hover:bg-indigo-700 duration-300">
