@@ -6,8 +6,8 @@ export default function onChange() {
     console.log(search);
 
     return (
-        <div>
-            <input type="search" onChange={(e) => setSearch(e.target.value)} />
+        <div className="space-y-5 text-bold text-6xl absolute top-[30%] left-[30%]">
+            <input className="text-gray-700" type="search" onChange={(e) => setSearch(e.target.value)} />
             <p>search: {search}</p>
         </div>
     );
