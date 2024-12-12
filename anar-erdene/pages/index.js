@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 export default function Home() {
     const router = useRouter();
     return (
-        <div className="bg-black h-screen">
+        <div className="bg-black h-full">
             <h1 className="text-4xl font-bold text-center text-white mb-5 pt-5 cursor-pointer">ALL MY FRONT-END TASKS</h1>
             <div className="grid grid-cols-3 gap-4 px-5">
                 <button
@@ -69,10 +69,10 @@ export default function Home() {
 
                 <button
                     className="bg-gray-300 hover:bg-gray-400 rounded-lg overflow-hidden border-4 border-gray-300 hover:border-cyan-500 w-full h-full cursor-pointer"
-                    onClick={() => router.push("/weather")}
+                    onClick={() => router.push("/biydaalt")}
                 >
                     <div className="h-80 w-full relative">
-                        <Image src="/biydaalt.png" alt="weather" layout="fill" objectFit="cover" />
+                        <Image src="/biydaalt.png" alt="biydaalt" layout="fill" objectFit="cover" />
                     </div>
                     <p className="text-center text-black font-semibold mt-3">Biy Daalt</p>
                 </button>   
