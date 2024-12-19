@@ -62,7 +62,6 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* Bottom Information Section */}
             <div className="flex items-center justify-center text-black">
                 <div className="bg-white absolute bottom-[-35px] rounded-xl shadow-xl flex justify-center items-center text-black w-[38%] h-[14%] space-x-16 my-[-0.1%]">
                     <div className="space-x-3 flex mr-4 items-center">
