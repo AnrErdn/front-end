@@ -85,6 +85,24 @@ export default function Home() {
                     </div>
                     <p className="text-center text-black font-semibold mt-3">EBuuhia - Nemelt Onoo</p>
                 </button>   
+                <button
+                    className="bg-gray-300 hover:bg-gray-400 rounded-lg overflow-hidden border-4 border-gray-300 hover:border-cyan-500 w-full h-full cursor-pointer"
+                    onClick={() => router.push("/lab3")}
+                >
+                    <div className="h-80 w-full relative">
+                        <Image src="/ss.png" alt="biydaalt" layout="fill" objectFit="cover" />
+                    </div>
+                    <p className="text-center text-black font-semibold mt-3">Mongol API - CLOTHES with search</p>
+                </button> 
+                <button
+                    className="bg-gray-300 hover:bg-gray-400 rounded-lg overflow-hidden border-4 border-gray-300 hover:border-cyan-500 w-full h-full cursor-pointer"
+                    onClick={() => router.push("/lab3")}
+                >
+                    <div className="h-80 w-full relative">
+                        <Image src="/mongol api.png" alt="biydaalt" layout="fill" objectFit="cover" />
+                    </div>
+                    <p className="text-center text-black font-semibold mt-3">Mongol API - All datas</p>
+                </button> 
             </div>
         </div>
     );
