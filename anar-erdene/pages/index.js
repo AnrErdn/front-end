@@ -50,17 +50,17 @@ export default function Home() {
             <div
                 className={`${
                     isSidebarExpanded ? "w-72" : "w-20"
-                } bg-gray-800/20 backdrop-blur-lg p-6 border-r border-gray-700/30 fixed h-full shadow-2xl transition-all duration-300`}
+                } bg-gray-800/20 backdrop-blur-lg p-4 border-r border-gray-700/30 fixed h-full shadow-2xl transition-all duration-300`}
             >
                 {/* Profile Section */}
-                <div className="flex items-center space-x-3 mb-8">
+                <div className="flex items-center justify-center mb-8">
                     <div className="w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center">
                         <i className="fas fa-user text-cyan-400 text-xl"></i>
                     </div>
                     {isSidebarExpanded && (
-                        <div>
-                            <p className="text-white font-medium">Anar-Erdene</p>
-                            <p className="text-sm text-gray-400">High School Student</p>
+                        <div className="ml-3">
+                            <p className="text-white font-medium">Anar-Erdeme</p>
+                            <p className="text-sm text-gray-400">Nest High School Student   </p>
                         </div>
                     )}
                 </div>
@@ -68,25 +68,24 @@ export default function Home() {
                 {/* Toggle Button */}
                 <button
                     onClick={() => setIsSidebarExpanded(!isSidebarExpanded)}
-                    className="absolute -right-3 top-10 bg-gray-800/50 backdrop-blur-md p-2 rounded-full border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300"
+                    className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-gray-800/50 backdrop-blur-md p-2 rounded-full border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300"
                 >
                     {isSidebarExpanded ? (
-                        <i className="fas fa-chevron-left text-white"></i>
+                        <i className="fas fa-chevron-left text-white text-sm"></i>
                     ) : (
-                        <i className="fas fa-chevron-right text-white"></i>
+                        <i className="fas fa-chevron-right text-white text-sm"></i>
                     )}
                 </button>
 
                 {/* Categories */}
-                <h2 className="text-sm font-bold text-gray-400 mb-4">
-                    {isSidebarExpanded ? "CATEGORIES" : ""}
-                </h2>
                 <ul className="space-y-2">
                     {categories.map((category, index) => (
                         <li
                             key={index}
                             onClick={() => setSelectedCategory(category.name)}
-                            className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-300 ${
+                            className={`flex items-center justify-center ${
+                                isSidebarExpanded ? "justify-start px-3" : "justify-center"
+                            } p-2 rounded-lg cursor-pointer transition-all duration-300 ${
                                 selectedCategory === category.name
                                     ? "bg-gray-700/50 text-cyan-400 shadow-lg"
                                     : "text-gray-400 hover:bg-gray-700/30 hover:text-white"
@@ -94,7 +93,7 @@ export default function Home() {
                         >
                             <i className={`fas ${category.icon} text-xl`}></i>
                             {isSidebarExpanded && (
-                                <span className="text-sm font-medium">{category.name}</span>
+                                <span className="text-sm font-medium ml-3">{category.name}</span>
                             )}
                         </li>
                     ))}
@@ -175,16 +174,16 @@ export default function Home() {
             {/* Footer */}
             <footer className="w-full bg-gray-800/50 backdrop-blur-md border-t border-gray-700/50 p-6 text-center mt-auto">
                 <p className="text-gray-400">
-                    &copy; {new Date().getFullYear()} All Rights Reserved. Made with ❤️ by [Your Name]
+                    &copy; {new Date().getFullYear()} All Rights Reserved. Made with 🚀 by Anar-Erdene
                 </p>
                 <p className="text-gray-400 mt-2">
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-300">
+                    <a href="https://github.com/AnrErdn" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-300">
                         GitHub
                     </a> | 
                     <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-300">
                         LinkedIn
                     </a> | 
-                    <a href="mailto:youremail@example.com" className="hover:text-cyan-400 transition-colors duration-300">
+                    <a href="mailto:g.anarerdenegantulga34@gmail.com" className="hover:text-cyan-400 transition-colors duration-300">
                         Email
                     </a>
                 </p>

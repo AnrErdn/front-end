@@ -1,5 +1,8 @@
-import "@/styles/globals.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "../styles/globals.css"; // Your global styles
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />;
 }
+
+export default MyApp;
