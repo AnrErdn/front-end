@@ -11,70 +11,82 @@ export default function lab4() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredClothes = clothes.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const filteredInstruments = instruments.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const filteredHistoricals = historicals.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const filteredEthnics = ethnics.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const filteredProvinces = provinces.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
   const filteredFigures = figures.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
   const filteredTourists = tourist.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {
-
-
     const fetchData = async () => {
       try {
-        const clothesResponse = await fetch("https://mongol-api-rest.vercel.app/clothes");
-        const clothesData = await clothesResponse.json();
-        setClothes(clothesData.clothes);
+        const fetchAndCheck = async (url) => {
+          try {
+            const response = await fetch(url);
+            if (!response.ok) {
+              console.warn(`Failed to fetch from ${url} - ${response.status}`);
+              // Return an empty result object with the expected property
+              if (url.includes("historical-tools")) return { historicals: [] };
+              if (url.includes("clothes")) return { clothes: [] };
+              if (url.includes("instruments")) return { instruments: [] };
+              if (url.includes("ethnic-groups")) return { ethnics: [] };
+              if (url.includes("provinces")) return { provinces: [] };
+              if (url.includes("figures")) return { figures: [] };
+              if (url.includes("tourists")) return { tourists: [] };
+              return {};
+            }
+            return response.json();
+          } catch (error) {
+            console.error(`Error fetching ${url}:`, error);
+            return {}; // Return empty object on error
+          }
+        };
+    
+        const clothesData = await fetchAndCheck("https://mongol-api-rest.vercel.app/clothes");
+        setClothes(clothesData.clothes || []);
+    
+        const instrumentsData = await fetchAndCheck("https://mongol-api-rest.vercel.app/instruments");
+        setInstruments(instrumentsData.instruments || []);
+    
+        const historicalsData = await fetchAndCheck("https://mongol-api-rest.vercel.app/api/historical-tools");
+        setHistoricals(historicalsData.historicals || []);
+    
+        const ethnicsData = await fetchAndCheck("https://mongol-api-rest.vercel.app/ethnic-groups");
+        setEthnics(ethnicsData.ethnics || []);
+    
+        const provincesData = await fetchAndCheck("https://mongol-api-rest.vercel.app/provinces");
+        setProvinces(provincesData.provinces || []);
+    
+        const figuresData = await fetchAndCheck("https://mongol-api-rest.vercel.app/historical-figures");
+        setFigures(figuresData.figures || []);
         
-        const instrumentsResponse = await fetch("https://mongol-api-rest.vercel.app/instruments");
-        const instrumentsData = await instrumentsResponse.json();
-        setInstruments(instrumentsData.instruments);
-
-        const historicalsResponse = await fetch("https://mongol-api-rest.vercel.app/historical-tools");
-        const historicalsData = await historicalsResponse.json();
-        setHistoricals(historicalsData.historicals);
-
-        const ethicalsResponse = await fetch("https://mongol-api-rest.vercel.app/ethnic-groups");
-        const ethicalsData = await ethicalsResponse.json();
-        setEthnics(ethicalsData.ethicals);
-        
-        const provincesResponse = await fetch("https://mongol-api-rest.vercel.app/provinces");
-        const provincesData = await provincesResponse.json();
-        setProvinces(provincesData.provinces);
-
-        const figuresResponse = await fetch("https://mongol-api-rest.vercel.app/figures");
-        const figuresData = await figuresResponse.json();
-        setFigures(figuresData.figures);
-
-        const touristsResponse = await fetch("https://mongol-api-rest.vercel.app/tourists");
-        const touristsData = await touristsResponse.json();
-        setTourist(touristsData.tourists);
-
-        setData([...clothesData, ...instrumentsData, ...historicalsData, ...historicalsData, ...provincesData, ...figuresData, touristsData,]);
+        const touristsData = await fetchAndCheck("https://mongol-api-rest.vercel.app/tourist-attractions");
+        setTourist(touristsData.tourists || []);
+    
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
+    
     fetchData();
   }, []);
 
@@ -116,7 +128,7 @@ export default function lab4() {
               >
                 <img
                   className="w-full h-72 object-contain rounded-xl mb-4"
-                  src={item.images[0]}
+                  src={item.images?.[0]}
                   alt={item.name}
                 />
                 <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
@@ -139,7 +151,7 @@ export default function lab4() {
               >
                 <img
                   className="w-full h-72 object-contain rounded-xl mb-4"
-                  src={item.images[0]}
+                  src={item.images?.[0]}
                   alt={item.name}
                 />
                 <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
@@ -162,7 +174,7 @@ export default function lab4() {
                   >
                     <img
                       className="w-full h-72 object-contain rounded-xl mb-4"
-                      src={item.images[0]}
+                      src={item.images?.[0]}
                       alt={item.name}
                     />
                     <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
@@ -174,9 +186,9 @@ export default function lab4() {
                 ))}
             </div>
         </div>
-         {/* Ethnic-Groups Section */}
-         <div className="my-6 mx-12">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Historical Tools</h2>
+        {/* Ethnic-Groups Section */}
+        <div className="my-6 mx-12">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Ethnic Groups</h2>
             <div className="grid grid-cols-3 gap-8">
                 {filteredEthnics.map((item) => (
                   <div
@@ -185,7 +197,7 @@ export default function lab4() {
                   >
                     <img
                       className="w-full h-72 object-contain rounded-xl mb-4"
-                      src={item.images[0]}
+                      src={item.images?.[0]}
                       alt={item.name}
                     />
                     <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
@@ -197,7 +209,7 @@ export default function lab4() {
         </div>
         {/* Provinces Section */}
         <div className="my-6 mx-12">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Historical Tools</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Provinces</h2>
             <div className="grid grid-cols-3 gap-8">
                 {filteredProvinces.map((item) => (
                   <div
@@ -206,7 +218,7 @@ export default function lab4() {
                   >
                     <img
                       className="w-full h-72 object-contain rounded-xl mb-4"
-                      src={item.images[0]}
+                      src={item.images?.[0]}
                       alt={item.name}
                     />
                     <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
@@ -220,7 +232,7 @@ export default function lab4() {
         </div>
         {/* Historical Figures Section */}
         <div className="my-6 mx-12">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Historical Tools</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Historical Figures</h2>
             <div className="grid grid-cols-3 gap-8">
                 {filteredFigures.map((item) => (
                   <div
@@ -229,13 +241,13 @@ export default function lab4() {
                   >
                     <img
                       className="w-full h-72 object-contain rounded-xl mb-4"
-                      src={item.images[0]}
+                      src={item.images?.[0]}
                       alt={item.name}
                     />
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.dateOfBirth}</h2>
-                    <p className="py-2 text-gray-600">Date of birth: {item.area}</p>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
+                    <p className="py-2 text-gray-600">Date of birth: {item.dateOfBirth}</p>
                     <p className="py-2 text-gray-600">Country of birth: {item.countryOfBirth}</p>
-                    <p className="py-2 text-gray-600">Date of death: {item.dateOfDeath}"</p>
+                    <p className="py-2 text-gray-600">Date of death: {item.dateOfDeath}</p>
                     <p className="py-2 text-gray-600 italic">Accomplishment: {item.accomplishment}</p>
                 </div>
                 ))}
@@ -243,7 +255,7 @@ export default function lab4() {
         </div>
         {/* Tourist Attractions Section */}
         <div className="my-6 mx-12">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Historical Tools</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Tourist Attractions</h2>
             <div className="grid grid-cols-3 gap-8">
                 {filteredTourists.map((item) => (
                   <div
@@ -252,12 +264,12 @@ export default function lab4() {
                   >
                     <img
                       className="w-full h-72 object-contain rounded-xl mb-4"
-                      src={item.images[0]}
+                      src={item.images?.[0]}
                       alt={item.name}
                     />
                     <h2 className="text-2xl font-semibold text-gray-800 mb-2">{item.name}</h2>
                     <p className="text-lg text-gray-600">{item.description}</p>
-                    <p className="py-2 text-gray-800 italilc">Address: {item.address}</p>
+                    <p className="py-2 text-gray-800 italic">Address: {item.address}</p>
                 </div>
                 ))}
             </div>
