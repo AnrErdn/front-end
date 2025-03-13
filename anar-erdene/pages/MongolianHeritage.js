@@ -19,7 +19,7 @@ export default function MongolianHeritage() {
 
   const filteredInstruments = instruments.filter(item =>
     item.name?.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  );z
 
   const filteredHistoricals = historicals.filter(item =>
     item.name?.toLowerCase().includes(searchQuery.toLowerCase())
