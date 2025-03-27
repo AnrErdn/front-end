@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from 'next/link';
 
 export default function MongolianHeritage() {
   const [clothes, setClothes] = useState([]);
@@ -109,13 +110,15 @@ export default function MongolianHeritage() {
 
     switch (activeTab) {
       case 'clothes':
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredClothes.length > 0 ? filteredClothes.map((item) => (
-              <div
-                key={item.id || item._id}
-                className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800"
-              >
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredClothes.length > 0 ? filteredClothes.map((item) => (
+            <Link 
+              key={item.id || item._id} 
+              href={`/details/clothes/${item.id || item._id}`}
+              className="cursor-pointer"
+            >
+              <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
                     <img
@@ -142,9 +145,10 @@ export default function MongolianHeritage() {
                   </div>
                 </div>
               </div>
-            )) : renderEmptyState()}
-          </div>
-        );
+            </Link>
+          )) : renderEmptyState()}
+        </div>
+      );
       case 'instruments':
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -186,7 +190,7 @@ export default function MongolianHeritage() {
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredHistoricals.length > 0 ? filteredHistoricals.map((item) => (
-              <div
+              <div  
                 key={item.id || item._id}
                 className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800"
               >
@@ -429,7 +433,7 @@ export default function MongolianHeritage() {
                 Mongolian Heritage
               </span>
             </h1>
-           
+          
             {/* Search Input */}
             <div className="relative max-w-md w-full">
               <input
