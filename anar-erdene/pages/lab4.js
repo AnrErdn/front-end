@@ -126,7 +126,7 @@ export default function Lab4() {
                 key={item.id}
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
               >
-                <img
+                <image
                   className="w-full h-72 object-contain rounded-xl mb-4"
                   src={item.images?.[0]}
                   alt={item.name}
@@ -149,7 +149,7 @@ export default function Lab4() {
                 key={item.id}
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
               >
-                <img
+                <image
                   className="w-full h-72 object-contain rounded-xl mb-4"
                   src={item.images?.[0]}
                   alt={item.name}
@@ -172,7 +172,7 @@ export default function Lab4() {
                     key={item.id}
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
                   >
-                    <img
+                    <image
                       className="w-full h-72 object-contain rounded-xl mb-4"
                       src={item.images?.[0]}
                       alt={item.name}
@@ -195,7 +195,7 @@ export default function Lab4() {
                     key={item.id}
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
                   >
-                    <img
+                    <image
                       className="w-full h-72 object-contain rounded-xl mb-4"
                       src={item.images?.[0]}
                       alt={item.name}
@@ -216,7 +216,7 @@ export default function Lab4() {
                     key={item.id}
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
                   >
-                    <img
+                    <image
                       className="w-full h-72 object-contain rounded-xl mb-4"
                       src={item.images?.[0]}
                       alt={item.name}
@@ -239,7 +239,7 @@ export default function Lab4() {
                     key={item.id}
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
                   >
-                    <img
+                    <image
                       className="w-full h-72 object-contain rounded-xl mb-4"
                       src={item.images?.[0]}
                       alt={item.name}
@@ -262,7 +262,7 @@ export default function Lab4() {
                     key={item.id}
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 min-h-[300px]"
                   >
-                    <img
+                    <image
                       className="w-full h-72 object-contain rounded-xl mb-4"
                       src={item.images?.[0]}
                       alt={item.name}

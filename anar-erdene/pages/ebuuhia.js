@@ -1,6 +1,3 @@
-
-
-
 import Image from 'next/image';
 
 export default function Home() {
@@ -51,7 +48,7 @@ export default function Home() {
 
                             <button className="flex items-center font-md text-sm text-white bg-[#6a6adf] rounded-full py-3 px-5 absolute top-[90%]">
                                 Хүргэлт шалгах
-                                <img className="ml-6" src="/vector.svg" alt="Vector icon" />
+                                <image className="ml-6" src="/vector.svg" alt="Vector icon" />
                             </button>
                         </div>
 
@@ -65,21 +62,21 @@ export default function Home() {
             <div className="flex items-center justify-center text-black">
                 <div className="bg-white absolute bottom-[-35px] rounded-xl shadow-xl flex justify-center items-center text-black w-[38%] h-[14%] space-x-16 my-[-0.1%]">
                     <div className="space-x-3 flex mr-4 items-center">
-                        <img className="w-[49%]" src="/user.png"></img>
+                        <Image className="w-[49%]" src="/user.png"></Image>
                         <div className="text-sm">
                             <p className="font-extrabold">10 000+</p>
                             <p>Харилцагч</p>
                         </div>
                     </div>
                     <div className="space-x-3 flex mr-4 items-center">
-                        <img className="w-[49%]" src="/map.png"></img>
+                        <Image className="w-[49%]" src="/map.png"></Image>
                         <div className="text-sm">
                             <p className="font-extrabold">30+</p>
                             <p>Бүсчлэл</p>
                         </div>
                     </div>
                     <div className="space-x-3 flex mr-4 items-center">
-                        <img className="w-[49%]" src="/send.png"></img>
+                        <Image className="w-[49%]" src="/send.png"></Image>
                         <div className="text-sm">
                             <p className="font-extrabold">1000+</p>
                             <p>Хүргэлт</p>

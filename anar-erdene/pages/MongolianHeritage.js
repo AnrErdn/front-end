@@ -121,7 +121,7 @@ export default function MongolianHeritage() {
               <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
@@ -159,7 +159,7 @@ export default function MongolianHeritage() {
               >
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
@@ -196,7 +196,7 @@ export default function MongolianHeritage() {
               >
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
@@ -236,7 +236,7 @@ export default function MongolianHeritage() {
               >
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
@@ -272,7 +272,7 @@ export default function MongolianHeritage() {
               >
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
@@ -306,7 +306,7 @@ export default function MongolianHeritage() {
               >
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
@@ -342,7 +342,7 @@ export default function MongolianHeritage() {
               >
                 <div className="relative h-72 overflow-hidden bg-gray-50 dark:bg-gray-800">
                   {item.images?.[0] ? (
-                    <img
+                    <image
                       className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-300"
                       src={item.images[0]}
                       alt={item.name}
