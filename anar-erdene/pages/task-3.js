@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function onChange() {
+export default function OnChange() {
     const [search, setSearch] = useState("");
 
     console.log(search);

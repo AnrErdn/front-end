@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function lab4() {
+export default function Lab4() {
   const [clothes, setClothes] = useState([]); 
   const [instruments, setInstruments] = useState([]);
   const [historicals, setHistoricals] = useState([]);

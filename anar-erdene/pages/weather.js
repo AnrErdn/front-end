@@ -7,7 +7,7 @@ export default function Home() {
                 {/* Sidebar */}
                 <div className="bg-gray-800 rounded-3xl h-full w-[5%] p-5">
                     <div>
-                        <img src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" alt="Logo" />
+                        <image src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" alt="Logo" />
                     </div>
 
                     {/* Navbar */}
@@ -52,7 +52,7 @@ export default function Home() {
 
                     {/* Today's forecast */}
                     <div className="bg-gray-800 w-full h-[30%] mt-6 rounded-2xl">
-                        <p className="text-slate-400 text-sm font-semibold text-start my-7 mx-10">TODAY'S FORECAST</p>
+                        <p className="text-slate-400 text-sm font-semibold text-start my-7 mx-10"> TODAYS FORECAST</p>
                         <div className="grid grid-flow-col gap-5">
                             <div className="border-r-2 border-slate-400">
                                 <p className="text-slate-400 font-semibold mx-16">6:00 AM</p> 

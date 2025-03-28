@@ -210,7 +210,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl font-bold leading-tight text-gray-100 mb-4">
-                Hi, I'm <span className="text-indigo-400">Anar-Erdene</span>
+                Hi, Im <span className="text-indigo-400">Anar-Erdene</span>
               </h1>
               <h2 className="text-2xl text-gray-400 mb-6">
                 Student at Nest Education IT School
@@ -315,12 +315,12 @@ export default function Home() {
                 Anar-Erdene Gantulga
               </h3>
               <p className="text-gray-300 mb-6">
-                I'm a student at Nest Education IT School with a passion for web development
+                Im a student at Nest Education IT School with a passion for web development
                 and design. My journey in the tech world started with curiosity about how websites
                 work, which led me to dive deep into coding and digital design.
               </p>
               <p className="text-gray-300 mb-6">
-                When I'm not coding, I enjoy exploring new technologies, working on personal projects,
+                When Im not coding, I enjoy exploring new technologies, working on personal projects,
                 and continuously expanding my skill set to stay current in this fast-paced industry.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -397,7 +397,7 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-indigo-400"></span>
             </h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Technical skills and competencies I've developed over time.
+              Technical skills and competencies Ive developed over time.
             </p>
           </motion.div>
           
@@ -448,7 +448,7 @@ export default function Home() {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-indigo-400"></span>
             </h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              The path I've taken in my career and education so far.
+              The path Ive taken in my career and education so far.
             </p>
           </motion.div>
           

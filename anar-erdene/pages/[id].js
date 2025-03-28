@@ -44,7 +44,7 @@ export default function DetailPage() {
           <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-xl">
             {item.images?.[0] && (
               <div className="relative h-96">
-                <img
+                <image
                   src={item.images[0]}
                   alt={item.name}
                   className="w-full h-full object-cover"

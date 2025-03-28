@@ -1,28 +1,30 @@
 import { useState, useEffect } from "react";
 
-export default function lab2() {
+export default function Lab3() {  // Renamed the component to start with uppercase
   const [data, setData] = useState([]); 
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredData = data.filter(item =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
   
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const response = await fetch("https://mongol-api-rest.vercel.app/clothes");
+        if (!response.ok) { // Ensure we handle non-200 responses
+          throw new Error('Network response was not ok');
+        }
         const result = await response.json();
         setData(result.clothes);  
       } catch (error) {
-       
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []);
-
+  }, []);  // Empty dependency array, runs once on component mount
 
   console.log(filteredData);
 
