@@ -21,6 +21,7 @@ export default function Home() {
         { path: "/lab3", image: "/mongol api.png", label: "Lab 3", description: "API integration project.", icon: "🔗", category: "School Projects" },
         { path: "/lab4", image: "/lab4.png", label: "Lab 4", description: "Advanced UI experiments.", icon: "🧪", category: "School Projects" },
         { path: "/MongolianHeritage", image: "/MongolianHeritage.png", label: "Mongolian Heritage", description: "Explore Mongolian culture.", icon: "🏞️", category: "School Projects" },
+        { path: "/toki", image: "/tokilogo.png", label: "Toki", description: "Toki app landing page clone with smooth transitions and animations.", icon: "📱", category: "School Projects" },
     ];
 
     // Categories for filtering with Font Awesome icons
