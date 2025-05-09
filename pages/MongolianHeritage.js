@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from 'next/link';
+import axios from "axios";
 
 export default function MongolianHeritage() {
   const [clothes, setClothes] = useState([]);
@@ -107,6 +108,7 @@ export default function MongolianHeritage() {
         </div>
       );
     }
+
 
     switch (activeTab) {
       case 'clothes':
@@ -479,12 +481,15 @@ export default function MongolianHeritage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 py-8 px-4">
+      <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 py-8 px-4 ">
         <div className="container mx-auto">
           <p className="text-center text-gray-500 dark:text-gray-400 text-sm">
             © {new Date().getFullYear()} Mongolian Heritage. All rights reserved.
           </p>
         </div>
+        <button className="bg-blue-600 rounded-3xl p-2 m-4 text-white ">
+          Add informations
+        </button>
       </footer>
     </div>
   );
