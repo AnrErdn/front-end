@@ -291,31 +291,6 @@ const DatingApp = () => {
     }
 
 
-    // Why I Like Her Page
-    if (currentPage === 'whyHer') {
-        return (
-            <PageContainer showBack={true}>
-                <div className="text-center space-y-6">
-                    <BearMascot emotion="excited" />
-                    <h1 className="text-2xl font-bold text-gray-800">Why I Want to Date You 💌</h1>
-                    <p className="text-gray-700 leading-relaxed text-md">
-                        Чамайг анх хараад л ямар хөөрхөн охин бэ гэж бодсон.
-                        <br /><br />
-                        Чи надад ухаантай, хөөрхөн, өөрийнхөөрөө юм шиг санагдсан. Магадгүй чамтай хамт цагийг өнгөрөөх гэсэн нь үүнээс л болсон байх.
-                        <br /><br />
-                        Тхх 
-                    </p>
-                    <button
-                        onClick={() => goNext('whenFree')}
-                        className="w-full bg-pink-500 text-white py-4 px-8 rounded-xl font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                    >
-                        Next 💖
-                    </button>
-                </div>
-            </PageContainer>
-        );
-    }
-
 
     // Don't Say No Page
     if (currentPage === 'dontSayNo') {
@@ -425,6 +400,31 @@ const DatingApp = () => {
                         className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-4 px-8 rounded-xl font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     >
                         {t.continue} 🌟
+                    </button>
+                </div>
+            </PageContainer>
+        );
+    }
+
+    // Why I Like Her Page
+    if (currentPage === 'whyHer') {
+        return (
+            <PageContainer showBack={true}>
+                <div className="text-center space-y-6">
+                    <BearMascot emotion="excited" />
+                    <h1 className="text-2xl font-bold text-gray-800">Why I Want to Date You 💌</h1>
+                    <p className="text-gray-700 leading-relaxed text-md">
+                        Чамайг анх хараад л ямар хөөрхөн охин бэ гэж бодсон.
+                        <br /><br />
+                        Чи надад ухаантай, хөөрхөн, өөрийнхөөрөө юм шиг санагдсан. Магадгүй чамтай хамт цагийг өнгөрөөх гэсэн нь үүнээс л болсон байх.
+                        <br /><br />
+                        Тхх 
+                    </p>
+                    <button
+                        onClick={() => goNext('whenFree')}
+                        className="w-full bg-pink-500 text-white py-4 px-8 rounded-xl font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                        Next 💖
                     </button>
                 </div>
             </PageContainer>
