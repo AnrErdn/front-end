@@ -43,7 +43,7 @@ const DatingApp = () => {
             finalMessage: 'Чамайг шийдвэрээ гаргасан гэж найдаж байна.',
             noPresure: 'Ямар ч хариулт байсан ч болноо.',
             sendResponse: 'Хариулт илгээх'
-        },
+        },  
         de: {
             // Language selection  
             selectLanguage: 'Sprache wählen',
