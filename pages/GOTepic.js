@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import starkLogo from '../public/G-Stark.png';
 import lannisterLogo from '../public/G-Lannister.png';
-import targaryenLogo from '../public/G-Targaryen.png';
+import targaryenLogo from '../public/G-Targaeryan.png';
 import baratheonLogo from '../public/G-Baratheon.png';
 import greyjoyLogo from '../public/G-Greyjoy.png';
 import tyrellLogo from '../public/G-Tyrell.png';
@@ -23,7 +23,7 @@ export default function GOT() {
     // House data with colors, logos, and descriptions
     const houseData = {
         "House Stark": {
-            color: "from-slate-400 to-slate-600",
+            color: "from-[#F2F2F2]",
             motto: "Winter is Coming",
             description: "The honorable rulers of the North, known for their integrity and strong family bonds.",
             logo: starkLogo,
@@ -31,7 +31,7 @@ export default function GOT() {
             region: "The North"
         },
         "House Lannister": {
-            color: "from-yellow-400 to-red-600",
+            color: "from-[#760000]",
             motto: "Hear Me Roar",
             description: "The wealthy lords of Casterly Rock, known for their cunning and political prowess.",
             logo: lannisterLogo,
@@ -39,7 +39,7 @@ export default function GOT() {
             region: "The Westerlands"
         },
         "House Targaryen": {
-            color: "from-red-500 to-black",
+            color: "from-[#0B0B0B]",
             motto: "Fire and Blood",
             description: "The dragon lords who conquered Westeros, masters of fire and ancient magic.",
             logo: targaryenLogo,
@@ -47,7 +47,7 @@ export default function GOT() {
             region: "Crownlands"
         },
         "House Baratheon": {
-            color: "from-yellow-500 to-black",
+            color: "from-[#F1C232]",
             motto: "Ours is the Fury",
             description: "The stormlords known for their strength in battle and fierce determination.",
             logo: baratheonLogo,
@@ -55,7 +55,7 @@ export default function GOT() {
             region: "The Stormlands"
         },
         "House Greyjoy": {
-            color: "from-slate-500 to-teal-700",
+            color: "from-[#0B0B0B]",
             motto: "We Do Not Sow",
             description: "The ironborn raiders of the Iron Islands, masters of the seas.",
             logo: greyjoyLogo,
@@ -63,7 +63,7 @@ export default function GOT() {
             region: "Iron Islands"
         },
         "House Tyrell": {
-            color: "from-green-400 to-green-700",
+            color: "from-[#4C860D]",
             motto: "Growing Strong",
             description: "The lords of the Reach, wealthy and powerful through their fertile lands.",
             logo: tyrellLogo,
@@ -71,7 +71,7 @@ export default function GOT() {
             region: "The Reach"
         },
         "House Martell": {
-            color: "from-orange-400 to-red-500",
+            color: "from-[#FF8417]",
             motto: "Unbowed, Unbent, Unbroken",
             description: "The proud princes of Dorne, known for their fierce independence.",
             logo: martellLogo,
@@ -79,7 +79,7 @@ export default function GOT() {
             region: "Dorne"
         },
         "House Tully": {
-            color: "from-blue-400 to-blue-700",
+            color: "from-[#00306E]",
             motto: "Family, Duty, Honor",
             description: "The riverlords who value family above all else.",
             logo: tullyLogo,
@@ -243,12 +243,7 @@ export default function GOT() {
                 </div>
                 
                 <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-                    <div className="mb-8">
-                        <span className="text-6xl animate-bounce">👑</span>
-                    </div>
-                    <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-thin tracking-tight mb-6 animate-fadeInUp">
-                        Game of Thrones
-                    </h1>
+                    <img src="second.svg" alt="Game of Thrones Logo" className=" mx-auto mb-4" />
                     <p className="text-2xl md:text-3xl text-white/70 font-light mb-4 animate-fadeInUp animation-delay-300">
                         The Complete Universe
                     </p>
@@ -272,9 +267,9 @@ export default function GOT() {
                 </div>
 
                 {/* Floating elements */}
-                <div className="absolute top-1/4 left-10 text-4xl animate-float">⚔️</div>
-                <div className="absolute top-1/3 right-10 text-3xl animate-float animation-delay-500">🐉</div>
-                <div className="absolute bottom-1/4 left-1/4 text-2xl animate-float animation-delay-1000">👑</div>
+                <img src="G-Targaeryan.png" alt="Targaryen" className="absolute top-1/4 left-[2%] animate-float h-[65%]"/>
+                <img src="G-Stark.png" alt="Stark" className="absolute top-1/4 right-10 animate-float h-64" />
+                <img src="G-Lannister.png" alt="Lannister" className="absolute bottom-[12%] right-12 left-[75%] h-56 animate-float animation-delay-1000" />
             </section>
 
             {/* Enhanced Stats Section */}
@@ -342,7 +337,7 @@ export default function GOT() {
                                     
                                     <div className="relative z-10">
                                         <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                                            <Image src={house.logo} alt={`${houseName} logo`} width={4} height={3} />
+                                            <Image src={house.logo} alt={`${houseName} logo`} width={40} height={30} />
                                         </div>
                                         <h3 className="text-2xl font-bold mb-2 text-white">
                                             {houseName.replace('House ', '')}
