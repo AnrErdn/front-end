@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from "recharts";
 
@@ -12,54 +10,30 @@ export default function F1DataVisualizer() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Mock data for demonstration (replace with actual API calls)
-  const mockDrivers = [
-    { driverId: "1", name: "Max", surname: "Verstappen", nationality: "Dutch", number: 1, shortName: "VER", birthday: "30/09/1997" },
-    { driverId: "2", name: "Sergio", surname: "Pérez", nationality: "Mexican", number: 11, shortName: "PER", birthday: "26/01/1990" },
-    { driverId: "3", name: "Lewis", surname: "Hamilton", nationality: "British", number: 44, shortName: "HAM", birthday: "07/01/1985" },
-    { driverId: "4", name: "George", surname: "Russell", nationality: "British", number: 63, shortName: "RUS", birthday: "15/02/1998" },
-    { driverId: "5", name: "Charles", surname: "Leclerc", nationality: "Monégasque", number: 16, shortName: "LEC", birthday: "16/10/1997" }
-  ];
-
-  const mockTeams = [
-    { teamId: "1", teamName: "Red Bull Racing", teamNationality: "Austrian", firstAppeareance: 2005, constructorsChampionships: 6, driversChampionships: 7 },
-    { teamId: "2", teamName: "Mercedes", teamNationality: "German", firstAppeareance: 2010, constructorsChampionships: 8, driversChampionships: 9 },
-    { teamId: "3", teamName: "Ferrari", teamNationality: "Italian", firstAppeareance: 1950, constructorsChampionships: 16, driversChampionships: 15 },
-    { teamId: "4", teamName: "McLaren", teamNationality: "British", firstAppeareance: 1966, constructorsChampionships: 8, driversChampionships: 12 },
-    { teamId: "5", teamName: "Aston Martin", teamNationality: "British", firstAppeareance: 2021, constructorsChampionships: 0, driversChampionships: 0 }
-  ];
-
-  const mockChampionship = [
-    { classificationId: 1, position: 1, points: 575, wins: 19, driver: { name: "Max", surname: "Verstappen", nationality: "Dutch", shortName: "VER" }, team: { teamName: "Red Bull Racing" } },
-    { classificationId: 2, position: 2, points: 285, wins: 2, driver: { name: "Sergio", surname: "Pérez", nationality: "Mexican", shortName: "PER" }, team: { teamName: "Red Bull Racing" } },
-    { classificationId: 3, position: 3, points: 234, wins: 1, driver: { name: "Lewis", surname: "Hamilton", nationality: "British", shortName: "HAM" }, team: { teamName: "Mercedes" } },
-    { classificationId: 4, position: 4, points: 175, wins: 1, driver: { name: "Fernando", surname: "Alonso", nationality: "Spanish", shortName: "ALO" }, team: { teamName: "Aston Martin" } },
-    { classificationId: 5, position: 5, points: 206, wins: 0, driver: { name: "George", surname: "Russell", nationality: "British", shortName: "RUS" }, team: { teamName: "Mercedes" } }
-  ];
+  // Utility function to handle API requests
+  const fetchFromAPI = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setError("");
       try {
-        // Using mock data for demonstration
-        // Replace these with actual API calls
-        setDrivers(mockDrivers);
-        setTeams(mockTeams);
-        setChampionship(mockChampionship);
-        
-        // Actual API calls would look like:
-        /*
+        // Fetch data from actual F1 API
         const [driversRes, teamsRes, championshipRes] = await Promise.all([
-          fetch("https://f1api.dev/api/drivers").then(r => r.json()),
-          fetch("https://f1api.dev/api/teams").then(r => r.json()),
-          fetch("https://f1api.dev/api/2023/drivers-championship").then(r => r.json())
+          fetchFromAPI("https://f1api.dev/api/current/drivers"),
+          fetchFromAPI("https://f1api.dev/api/current/teams"),
+          fetchFromAPI("https://f1api.dev/api/2025/drivers-championship")
         ]);
         
         setDrivers(driversRes.drivers || []);
         setTeams(teamsRes.teams || []);
         setChampionship(championshipRes.drivers_championship || []);
-        */
       } catch (err) {
         setError("Error fetching F1 data: " + err.message);
         console.error("Error fetching F1 data:", err);
@@ -77,6 +51,14 @@ export default function F1DataVisualizer() {
       stats[driver.nationality] = (stats[driver.nationality] || 0) + 1;
     });
     return Object.entries(stats).map(([country, count]) => ({ country, count }));
+  };
+
+  const getTeamStats = () => {
+    return teams.map(team => ({
+      name: team.teamName,
+      drivers: team.drivers || 0,
+      points: team.points || 0
+    }));
   };
 
   const getTeamChampionshipData = () => {
@@ -162,6 +144,11 @@ export default function F1DataVisualizer() {
                   <div className="space-y-2 text-sm">
                     <p><span className="font-medium text-gray-600">Nationality:</span> <span className="text-gray-800">{driver.nationality}</span></p>
                     <p><span className="font-medium text-gray-600">Birthday:</span> <span className="text-gray-800">{driver.birthday}</span></p>
+                    {driver.url && (
+                      <a href={driver.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm">
+                        View Wikipedia →
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -206,12 +193,17 @@ export default function F1DataVisualizer() {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Constructor Titles:</span>
-                      <span className="font-bold text-blue-600">{team.constructorsChampionships}</span>
+                      <span className="font-bold text-blue-600">{team.constructorsChampionships || 0}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Driver Titles:</span>
-                      <span className="font-bold text-green-600">{team.driversChampionships}</span>
+                      <span className="font-bold text-green-600">{team.driversChampionships || 0}</span>
                     </div>
+                    {team.url && (
+                      <a href={team.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm block mt-2">
+                        View Wikipedia →
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -242,7 +234,7 @@ export default function F1DataVisualizer() {
 
             {/* Championship Standings Table */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">2023 Drivers Championship</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800">2025 Drivers Championship</h3>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
@@ -335,7 +327,7 @@ export default function F1DataVisualizer() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 p-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">🏎️ Formula 1 Data Dashboard</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Formula 1 Data Dashboard</h1>
           <p className="text-gray-600">Visualizing F1 drivers, teams, and championship data</p>
         </div>
         <TabNavigation />
