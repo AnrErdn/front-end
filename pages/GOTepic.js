@@ -267,9 +267,9 @@ export default function GOT() {
                 </div>
 
                 {/* Floating elements */}
-                <img src="G-Targaeryan.png" alt="Targaryen" className="absolute top-1/4 left-[2%] animate-float h-[65%]"/>
-                <img src="G-Stark.png" alt="Stark" className="absolute top-1/4 right-10 animate-float h-64" />
-                <img src="G-Lannister.png" alt="Lannister" className="absolute bottom-[12%] right-12 left-[75%] h-56 animate-float animation-delay-1000" />
+                <img src='G-Targaeryan.png' alt="Targaryen" className="absolute top-1/4 left-[2%] animate-float h-[65%]"/>
+                <img src='G-Stark.png' alt="Stark" className="absolute top-1/4 right-10 animate-float h-64" />
+                <img src='G-Lannister.png' alt="Lannister" className="absolute bottom-[12%] right-12 left-[75%] h-56 animate-float animation-delay-1000" />
             </section>
 
             {/* Enhanced Stats Section */}
@@ -343,7 +343,7 @@ export default function GOT() {
                                             {houseName.replace('House ', '')}
                                         </h3>
                                         <p className="text-white/90 font-medium mb-3 italic">
-                                            "{house.motto}"
+                                            {house.motto}
                                         </p>
                                         <p className="text-white/80 text-sm mb-4 leading-relaxed">
                                             {house.description}
@@ -545,8 +545,8 @@ export default function GOT() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-8">
                         <img src="GOT logo.png" alt="Game of Thrones Logo" className="h-12 mx-auto mb-4" />
-                        <p className="text-white/60 max-w-2xl mx-auto">
-                            "A mind needs books as a sword needs a whetstone, if it is to keep its edge." - Tyrion Lannister
+                        <p className="text-white-60 max-w-2xl mx-auto" >
+                            &quot;A mind needs books as a sword needs a whetstone, if it is to keep its edge.&quot; - Tyrion Lannister
                         </p>
                     </div>
                     <div className="text-center text-white/40 text-sm">
