@@ -23,6 +23,9 @@ export default function Home() {
         { path: "/uliral4", image: "/uliral4.png", label: "Uliral 4", description: "Modern product inventory management with interactive table.", icon: "📦", category: "School Projects" },
         { path: "/MongolianHeritage", image: "/MongolianHeritage.png", label: "Mongolian Heritage", description: "Explore Mongolian culture.", icon: "🏞️", category: "School Projects" },
         { path: "/toki", image: "/tokilogo.png", label: "Toki", description: "Toki app landing page clone with smooth transitions and animations.", icon: "📱", category: "School Projects" },
+        { path: "/GOTepic", image: "/got.png", label: "Game of Thrones (Epic)", description: "Explore the world of Westeros.", icon: "🐉", category: "School Projects" },
+        { path: "/GOT", image: "/got2.png", label: "Game of Thrones (Simple)", description: "GOT API data", icon: "🐉", category: "School Projects" },
+        { path: "/f1", image: "/f1.png", label: "Formula 1", description: "F1 API", icon: "🏎️", category: "School Projects" }
     ];
 
     // Categories for filtering with Font Awesome icons
